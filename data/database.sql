@@ -56,7 +56,7 @@ CREATE TABLE `Target` (
   `idTarget` int NOT NULL AUTO_INCREMENT,
   `name` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`idTarget`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,6 +65,7 @@ CREATE TABLE `Target` (
 
 LOCK TABLES `Target` WRITE;
 /*!40000 ALTER TABLE `Target` DISABLE KEYS */;
+INSERT INTO `Target` VALUES (1,'CFTR'),(2,'Glycophorin D'),(3,'Scramblase'),(4,'Nicotinic acetylcholine receptor'),(5,'GABAa receptors'),(6,'Potassium channels'),(7,'Calcium channels'),(8,'Sodium channels'),(9,'Colony-stimulating factors (CSFs)'),(10,'Epidermal growth factor (EGF)'),(11,'Fibroblast growth factor (FGF)'),(12,'Platelet-derived growth factor (PDGF)'),(13,'Transforming growth factors (TGFs)'),(14,'Vascular endothelial growth factor (VEGF)'),(15,'C-myc'),(16,'FOXP2'),(17,'FOXP3'),(18,'MyoD'),(19,'P53');
 /*!40000 ALTER TABLE `Target` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,6 +93,7 @@ CREATE TABLE `Target_has_Compound` (
 
 LOCK TABLES `Target_has_Compound` WRITE;
 /*!40000 ALTER TABLE `Target_has_Compound` DISABLE KEYS */;
+INSERT INTO `Target_has_Compound` VALUES (4,1),(8,1),(9,1),(6,2),(11,2),(14,2),(15,2),(16,2),(12,3),(13,3),(14,3),(10,4),(15,4),(17,4),(18,4),(19,4),(2,5),(8,5),(9,5),(17,5);
 /*!40000 ALTER TABLE `Target_has_Compound` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -155,6 +157,7 @@ CREATE TABLE `sources_has_Compound` (
 
 LOCK TABLES `sources_has_Compound` WRITE;
 /*!40000 ALTER TABLE `sources_has_Compound` DISABLE KEYS */;
+INSERT INTO `sources_has_Compound` VALUES ('3WAY PHARM INC',1),('A2B Chem',1),('AA BLOCKS',1),('AbaChemScene',1),('ABI Chem',1),('AHH Chemical co.,ltd',1),('BenchChem',1),('Chemieliva Pharmaceutical Co., Ltd',1),('Clearsynth',1),('Collaborative Drug Discovery, Inc.',1),('Egon Willighagen (Dept. of Bioinformatics - BiGCaT, Maastricht University)',1),('Finetech Industry Limited',1),('Google Patents',1),('Human Metabolome Database (HMDB)',1),('iChemical Technology USA Inc',1),('MassBank of North America (MoNA)',1),('MedChemexpress MCE',1),('MetabolomicsWorkbench',1),('NORMAN Suspect List Exchange',1),('Parchem',1),('PATENTSCOPE (WIPO)',1),('SCRIPDB',1),('Smolecule',1),('Springer Nature',1),('SureChEMBL',1),('THE BioTek',1),('ToxPlanet',1),('Wikidata',1),('WikiPathways',1),('ABI Chem',2),('Achemica',2),('Allbio Pharm Co., Ltd',2),('AN PharmaTech',2),('Collaborative Drug Discovery, Inc.',2),('Google Patents',2),('IBM',2),('Japan Chemical Substance Dictionary (Nikkaji)',2),('MassBank Europe',2),('Mcule',2),('OChem',2),('PATENTSCOPE (WIPO)',2),('SCRIPDB',2),('SureChEMBL',2),('TimTec',2),('UW Madison, Small Molecule Screening Facility',2),('ABI Chem',3),('Achemica',3),('ChemTik',3),('Egon Willighagen (Dept. of Bioinformatics - BiGCaT, Maastricht University)',3),('Google Patents',3),('IBM',3),('Japan Chemical Substance Dictionary (Nikkaji)',3),('PATENTSCOPE (WIPO)',3),('Springer Nature',3),('SureChEMBL',3),('THE BioTek',3),('ToxPlanet',3),('Wikidata',3),('001Chemical',4),('3B Scientific (Wuhan) Corp',4),('3WAY PHARM INC',4),('4C Pharma Scientific Inc',4),('A2B Chem',4),('AA BLOCKS',4),('Aaron Chemicals LLC',4),('AbaChemScene',4),('abcr GmbH',4),('ABI Chem',4),('Acadechem',4),('Accela ChemBio Inc.',4),('Achemica',4),('Achemtek',4),('ACT Chemical',4),('AHH Chemical co.,ltd',4),('AK Scientific, Inc. (AKSCI)',4),('Alfa Chemistry',4),('Alichem',4),('Amadis Chemical',4),('Ambeed',4),('AN PharmaTech',4),('Angene Chemical',4),('Apexmol',4),('Ark Pharm, Inc.',4),('Aurora Fine Chemicals LLC',4),('BenchChem',4),('BioChemPartner',4),('Biocore',4),('BLD Pharm',4),('BOC Sciences',4),('Chem-Space.com Database',4),('Chembase.cn',4),('Chemenu Inc.',4),('Chemical Carcinogenesis Research Information System (CCRIS)',4),('Chemieliva Pharmaceutical Co., Ltd',4),('ChemMol',4),('ChemTik',4),('Collaborative Drug Discovery, Inc.',4),('Combi-Blocks',4),('DAOGE BIOPHARMA',4),('Debye Scientific Co., Ltd',4),('Egon Willighagen (Dept. of Bioinformatics - BiGCaT, Maastricht University)',4),('Enamine',4),('eNovation Chemicals',4),('EPA Substance Registry Services',4),('Finetech Industry Limited',4),('Glentham Life Sciences Ltd.',4),('Google Patents',4),('Hairui Chemical',4),('Human Metabolome Database (HMDB)',4),('IBM',4),('iChemical Technology USA Inc',4),('Japan Chemical Substance Dictionary (Nikkaji)',4),('King Scientific',4),('LabNetwork, a WuXi AppTec Company',4),('labseeker',4),('LEAPCHEM',4),('LGC Standards',4),('Life Chemicals',4),('MassBank Europe',4),('MassBank of North America (MoNA)',4),('Mcule',4),('MolCore BioPharmatech',4),('Molepedia',4),('MuseChem',4),('NextMove Software',4),('NORMAN Suspect List Exchange',4),('Norris Pharm',4),('Oakwood Products',4),('OtavaChemicals',4),('Parchem',4),('PATENTSCOPE (WIPO)',4),('Phion Ltd',4),('Sarchem Laboratories, Inc.',4),('SCRIPDB',4),('Sinfoo Biotech',4),('SLING Consortium',4),('Springer Nature',4),('Synblock Inc',4),('THE BioTek',4),('Thermo Fisher Scientific',4),('Thieme Chemistry',4),('Tox21',4),('ToxPlanet',4),('Vesino Industrial Co., Ltd',4),('VladaChem',4),('VWR, Part of Avantor',4),('Wikidata',4),('Wiley',4),('Wubei-Biochem',4),('Wutech',4),('Yick-Vic Chemicals & Pharmaceuticals (HK) Ltd.',4),('Zjartschem',4),('ABI Chem',5),('ChemTik',5),('Egon Willighagen (Dept. of Bioinformatics - BiGCaT, Maastricht University)',5),('IBM',5),('Japan Chemical Substance Dictionary (Nikkaji)',5),('MetabolomicsWorkbench',5),('PATENTSCOPE (WIPO)',5),('SureChEMBL',5),('THE BioTek',5),('Wikidata',5);
 /*!40000 ALTER TABLE `sources_has_Compound` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -167,4 +170,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-02-09 13:57:22
+-- Dump completed on 2022-02-09 17:28:50
