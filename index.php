@@ -137,28 +137,6 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
 
     <div class="footer-top">
       <div class="container">
-        <div class="row">
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="about.html">About us</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
-            <p>
-              Carrer del Dr. Aiguader, 80 <br>
-              08003, Barcelona<br>
-              Spain <br><br>
-              <strong>Phone:</strong> +34 932 999 999<br>
-              <strong>Email:</strong> info@easychembrowser.com<br>
-            </p>
-
-          </div>
-
-        </div>
       </div>
     </div>
 
