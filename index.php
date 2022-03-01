@@ -1,4 +1,16 @@
+
+<?php 
+
+session_start();
+
+if (isset($_REQUEST['new']) or !isset($_SESSION['queryData'])) {
+    $_SESSION['queryData'] = [];
+    $_SESSION['outputfile'] = '';
+}
+?>
+
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -77,17 +89,17 @@
 
 
                 <div class="form__group field">
-                  <input type="input" class="form__field" placeholder="Ex. 3542" name="name" id='name' required />
+                  <input type="input" class="form__field" placeholder="Ex. 3542" name="name" id='name'  />
                   <label for="name" class="form__label"><b>PubChem CID</b></label>
                 </div>
                 <br></br>
                 <div class="form__group field">
-                  <input type="input" class="form__field" placeholder="Ex. CN1CCC[C@H]1c2cccnc2" name="name" id='name' required />
+                  <input type="input" class="form__field" placeholder="Ex. CN1CCC[C@H]1c2cccnc2" name="name" id='name'  />
                   <label for="name" class="form__label"><b>Search by canonical SMILES</b></label>
                 </div>
                 <br></br>
                 <div class="form__group field">
-                  <input type="input" class="form__field" placeholder="Ex. 2,5,5-trimethyl-2-hexene" name="name" id='name' required />
+                  <input type="input" class="form__field" placeholder="Ex. 2,5,5-trimethyl-2-hexene" name="name" id='name'  />
                   <label for="name" class="form__label"><b>Search by IUPAC Name</b></label>
                 </div>
              <br></br>
@@ -97,22 +109,29 @@
         <h2>Advanced Search </h2>
         <p> Obtain multiple compounds:</p>
             <div class="form__group field">
-              <input type="input" class="form__field" placeholder="Ex. C6H12O6" name="name" id='name' required />
+              <input type="input" class="form__field" placeholder="Ex. C6H12O6" name="name" id='name'  />
               <label for="name" class="form__label"><b>Search by Molecular Formula</b></label>
             </div>
             <br></br>
             <div class="form__group field">
-              <input type="input" class="form__field" placeholder="Ex. 432.78" name="name" id='name' required />
+              <input type="input" class="form__field" placeholder="Ex. 432.78" name="name" id='name'  />
               <label for="name" class="form__label"><b>Search by Molecular Weight</b></label>
             </div>
         </div>
 </div>
 <br></br>
 
+	<div class="row">
+	<div class="form__group field">
+            <button type='submit' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356">Submit query</button>
+            <button type='button' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356" onclick="window.location.href='index.php?new=1'">New search</button>
+    </div>
+    </div>
+</form>
 
 
-
-  </main><!-- End #main -->
+  </main>
+  <!-- End #main -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
