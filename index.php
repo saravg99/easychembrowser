@@ -80,7 +80,7 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
 
   <main id="main">
 
-  <form name="MainForm" action="search.php" method="POST" enctype="multipart/form-data">
+  <form name="MainForm" action="multiple_search.php" method="POST" enctype="multipart/form-data">
       <div class="row justify-content-center">
         <div class="col-xl-8">
             <h2>Search compounds</h2>
