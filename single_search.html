@@ -64,9 +64,9 @@
               <td>PDB reference</td>
               <td><?= $data['idCode'] ?></td>
               <td rowspan="5">
-                  <a href="http://www.pdb.org/pdb/explore.do?structureId=<?= $data['idCode'] ?>">
-                      <img src="http://mmb.pcb.ub.es/api/pdb/<?= strtolower($data['idCode']) ?>.png" border="0" width="250" ><br>
-                          Link to Protein Data Bank</a>
+                  <a href="https://pubchem.ncbi.nlm.nih.gov/compound/<?= $data[''] ?>">
+                      <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/<?= $data[''] ?>/png" border="0" width="250" ><br>
+                          Link to PubChem</a>
               </td>
           </tr>
           <tr>
