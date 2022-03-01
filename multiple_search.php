@@ -57,7 +57,7 @@ if ($_SESSION['data']['cid']) {
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>EasyChemBrowser</span></a></h1>
+        <h1 class="text-light"><a href="index.php"><span>EasyChemBrowser</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -73,8 +73,11 @@ if ($_SESSION['data']['cid']) {
 
     </div>
   </header><!-- End Header -->
-
-
+<br></br>
+<br></br>
+<div class="row justify-content-center">
+  <div class="col-xl-8">
+  <h1>Search results</h1>
   Num Hits: <?= mysqli_num_rows($rs) ?>
   <table border="0" cellspacing="2" cellpadding="4" id="dataTable">
       <thead>
@@ -108,7 +111,8 @@ if ($_SESSION['data']['cid']) {
           $('#dataTable').DataTable();
       });
   </script>
-
+</div>
+</div>
 
 
   <!-- ======= Footer ======= -->
