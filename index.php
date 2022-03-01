@@ -116,16 +116,17 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
               <input type="input" class="form__field" placeholder="Ex. 432.78" name="name" id='name' value="<?= $_SESSION['data']['molecularWeight'] ?>" />
               <label for="name" class="form__label"><b>Search by Molecular Weight</b></label>
             </div>
+            <div class="row">
+            <div class="form__group field">
+                    <button type='submit' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356">Submit</button>
+                    <button type='button' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356" onclick="window.location.href='index.php?new=1'">New search</button>
+            </div>
+            </div>
         </div>
 </div>
 <br></br>
 
-	<div class="row">
-	<div class="form__group field">
-            <button type='submit' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356">Submit query</button>
-            <button type='button' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356" onclick="window.location.href='index.php?new=1'">New search</button>
-    </div>
-    </div>
+
 </form>
 
 
