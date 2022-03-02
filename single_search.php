@@ -5,6 +5,7 @@ session_start();
 require_once "config.php";
 
 $cid = $_REQUEST['cid'];
+$_SESSION['cid'] = $cid;
 
 //get data form compound
 $sql = "SELECT * from Compound WHERE CID=" . $cid ;
@@ -60,12 +61,36 @@ if (mysqli_num_rows($rsS)) {
 
 
 
+	
+//check if is saved in favourites
+$isfav = false;
+
+if ($_SESSION["loggedin"] == true) {
+
+	$checkfav = "SELECT * FROM results_history r WHERE r.users_id=".$_SESSION["id"]." AND r.Compound_CID=".$cid ;
+	$checkresults = mysqli_query($link, $checkfav) or print mysqli_error($link);
+	if (mysqli_num_rows($checkresults)) {
+		$isfav = true; 
+	}
+}
+
+
+
+
  ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
 
+<!--
+                          <?php if ($isfav == true) {?>
+                      <?= 'active'; ?>
+                  <?php    } else {?>
+                      <?= '';?>
+                  <?php } ?>
+
+-->
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -115,15 +140,25 @@ if (mysqli_num_rows($rsS)) {
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="" href="index.php">Search page</a></li>
-          <li><a href="users/register.php">Sign Up</a></li>
-          <li><a href="users/login.php">Login</a></li>
+          
+          
+         <?php if ($_SESSION["loggedin"] == true) {?>
+                      <?= '<li><a href="users/profile.php">My profile</a></li><li><a href="users/logout.php">Log Out</a></li>'; ?>
+                  <?php    } else {?>
+                      <?= '<li><a href="users/register.php">Sign Up</a></li>
+          <li><a href="users/login.php">Login</a></li>';?>
+                  <?php } ?>
+          
+          
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-
+  
+  
 <br><br><br><br><br><br>
 
 <div class="row justify-content-center">
@@ -150,12 +185,19 @@ if (mysqli_num_rows($rsS)) {
                   <a href="https://pubchem.ncbi.nlm.nih.gov/compound/<?=$cid?>">
                       <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/<?=$cid?>/png" border="0" width="250" ><br>
                         <label class="row justify-content-center">Link to PubChem</label></a>
-                        <label  id=iconlabel for="id-of-input" class="custom-checkbox">
-                          <input type="checkbox" id="id-of-input"/>
+                        <form action="fav.php" method="post">
+                        <label  id="iconlabel" for="fav" class="custom-checkbox active">
+                          <input type="submit" id="fav" name="fav" />
                           <i class="fa fa-heart empty"></i>
                           <i class="fa fa-heart red"></i>
-                          <span style="font-size: 16px; vertical-align: middle;">Add to favourites</span>
+                          <span style="font-size: 16px; vertical-align: middle;">                          
+                          <?php if ($isfav == true) {?>
+                      <?= 'Added as favourite'; ?>
+                  <?php    } else {?>
+                      <?= 'Add to favourites';?>
+                  <?php } ?></span>
                         </label>
+                        </form>
               </td>
           </tr>
           <tr>
@@ -183,7 +225,7 @@ if (mysqli_num_rows($rsS)) {
               <td colspan="2"><?= $data['targets']?></td>
           </tr>
           <tr>
-              <td><b>vSources</b></td>
+              <td><b>Sources</b></td>
               <td colspan="2"><?= $data['sources'] ?></td>
           </tr>
       </tbody>

@@ -1350,7 +1350,7 @@ section {
 
 /* Required Styling */
 
-#iconlabel input[type="checkbox"] {
+#iconlabel input[type="submit"] {
   display: none;
 }
 
@@ -1362,7 +1362,7 @@ section {
 }
 
 .custom-checkbox .fa {
-  color: red;
+  color: gray;
   position: absolute;
   top: 0.4em;
   left: -1.25em;
@@ -1370,7 +1370,7 @@ section {
 }
 
 .custom-checkbox .empty {
-  color: gray;
+  color: red;
 }
 
 .custom-checkbox .red {
@@ -1382,6 +1382,6 @@ section {
   opacity: 0.5;
 }
 
-.custom-checkbox input[type="checkbox"]:checked ~ .red {
+.custom-checkbox input[type="submit"]:active ~ .red {
   opacity: 1;
 }
