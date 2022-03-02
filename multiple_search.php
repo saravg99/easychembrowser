@@ -5,12 +5,11 @@ $_SESSION['data'] = $_REQUEST;
 
 
 // If PubChem CID provided, redirect to the unique search page
-if ($_SESSION['data']['cid']) {
-    header('Location: single_search.php');
+
+if ($_REQUEST['cid']) {
+    header('Location: single_search.php?cid=' . $_REQUEST['cid']);
+
 }
-
-
-
 // If
 
 ?>

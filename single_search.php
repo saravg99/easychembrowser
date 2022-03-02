@@ -1,9 +1,67 @@
 <?php
 session_start();
 
-$cid = $_SESSION['data']['cid'];
+// Include config file
+require_once "config.php";
+
+$cid = $_REQUEST['cid'];
+
+//get data form compound
+$sql = "SELECT * from Compound WHERE CID=" . $cid ;
+$rs = mysqli_query($link, $sql) or print mysqli_error($link);
+
+if (!mysqli_num_rows($rs)) { //search is empty
+    print "<h1>Not Found</h1> <p> The requested compound is not available. </p>";
+    exit();
+}
+
+$data = mysqli_fetch_assoc($rs);
+
+$data['synonyms'] = str_replace(";", "<br>", $data['synonyms']);
+
+
+//get target info
+
+$data['targets'] = '';
+$rsT = mysqli_query($link, "SELECT * FROM Target t INNER JOIN Target_has_Compound tc ON t.idTarget=tc.Target_idTarget WHERE Compound_CID=" . $data['CID']) or print mysqli_error($link);
+
+if (mysqli_num_rows($rsT)) {
+    $targets = [];
+    while ($rsTF = mysqli_fetch_assoc($rsT)) {
+        $targets[] = $rsTF['name'];
+    }
+    $data['targets'] = join("<br>", $targets);
+}
+
+//get source info
+
+$data['sources'] = '';
+$rsS = mysqli_query($link, "SELECT * FROM sources s INNER JOIN sources_has_Compound sc ON s.source_name=sc.sources_source_name WHERE Compound_CID=" . $data['CID']) or print mysqli_error($link);
+
+
+if (mysqli_num_rows($rsS)) {
+    $sources = [];
+    $sourcesurl = [];
+    while ($rsSF = mysqli_fetch_assoc($rsS)) {
+        $sources[] = $rsSF['source_name'];
+        $sourcesurl[$rsSF['source_name']] = $rsSF['source_url'];
+    }
+    $sourcesandurls = [];
+    foreach ($sources as $sourcename) {
+    	
+	array_push($sourcesandurls, '<a href="'.$sourcesurl[$sourcename].'">'.$sourcename.'</a>' );
+    
+//<a href="url">text</a>   
+    
+    }
+    
+    $data['sources'] = join("<br>", $sourcesandurls);
+}
+
+
 
  ?>
+ 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -66,11 +124,23 @@ $cid = $_SESSION['data']['cid'];
   </header><!-- End Header -->
 
 <br><br><br><br><br><br>
+
+	<h2>
+
+		  <?php if ($data['header']) {?>
+                      <?= $data['header'] ?>
+                  <?php    } else {?>
+                      <?= $data['IUPAC'] ?>    
+                  <?php } ?>
+
+	</h2>
+
+
   <table class="table table-hover">
       <tbody>
           <tr>
               <td>PubChem CID</td>
-              <td><?= $_SESSION['data']['cid'] ?></td>
+              <td><?= $data['CID'] ?></td>
               <td rowspan="5">
                   <a href="https://pubchem.ncbi.nlm.nih.gov/compound/<?=$cid?>">
                       <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/<?=$cid?>/png" border="0" width="250" ><br>
@@ -78,43 +148,32 @@ $cid = $_SESSION['data']['cid'];
               </td>
           </tr>
           <tr>
-              <td>Header</td>
-              <td><?= $data['header'] ?></td>
+              <td>IUPAC name</td>
+              <td><?= $data['IUPAC'] ?></td>
           </tr>
           <tr>
-              <td>Title</td>
-              <td><?= $data['compound'] ?></td>
+              <td>Molecular Formula</td>
+              <td><?= $data['mol_formula'] ?></td>
           </tr>
           <tr>
-              <td>Resolution</td>
-              <td>
-                  <?php if ($data['resolution']) {?>
-                      <?= $data['resolution'] ?>
-                  <?php    } else {?>
-                          N.D.
-                  <?php } ?>
-              </td>
+              <td>Molecular Weight</td>
+              <td><?= $data['mol_weight'] ?></td>
           </tr>
           <tr>
-              <td>Ascession Date</td>
-              <td><?= $data['ascessionDate'] ?></td>
+              <td>Description</td>
+              <td><?= $data['description'] ?></td>
+          </tr>
+	  <tr>
+              <td>Synonyms</td>
+              <td colspan="2"><?= $data['synonyms']?></td>
           </tr>
           <tr>
-              <!--$expTypeArray is generated in globals.inc.php-->
-              <td>Experiment type</td>
-              <td colspan="2"><?= $expTypeArray[$data['idExpType']]['ExpType'] ?></td>
+              <td>Protein targets</td>
+              <td colspan="2"><?= $data['targets']?></td>
           </tr>
           <tr>
-              <td>Authors</td>
-              <td colspan="2"><?= $data['auts']?></td>
-          </tr>
-          <tr>
-              <td>Source</td>
+              <td>Sources</td>
               <td colspan="2"><?= $data['sources'] ?></td>
-          </tr>
-          <tr>
-              <td>Sequence(s)</td>
-              <td colspan="2"><?= $data['sequences'] ?></td>
           </tr>
       </tbody>
   </table>
@@ -150,3 +209,5 @@ $cid = $_SESSION['data']['cid'];
 </body>
 
 </html>
+
+
