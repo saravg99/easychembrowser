@@ -175,7 +175,7 @@ if (mysqli_num_rows($rsS)) {
               <td colspan="2"><?= $data['targets']?></td>
           </tr>
           <tr>
-              <td>vSources</b></td>
+              <td><b>vSources</b></td>
               <td colspan="2"><?= $data['sources'] ?></td>
           </tr>
       </tbody>

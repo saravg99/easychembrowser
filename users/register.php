@@ -134,7 +134,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.php"><span>EasyChemBrowser</span></a></h1>
+        <h1 class="text-light"><a href="../index.php"><span>EasyChemBrowser</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -178,7 +178,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
         <p></p>
             <div class="form-group">
-                <input type="submit" class="btn btn-primary" value="Submit">
+                <input type="submit" class="btn btn-primary" value="Submit" style="background-color: #1e4356; border-color:#1e4356">
                 <input type="reset" class="btn btn-secondary ml-2" value="Reset">
             </div>
             <p></p>
