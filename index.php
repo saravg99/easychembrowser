@@ -47,16 +47,16 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1 class="text-light"><a href="index.html"><span>EasyChemBrowser</span></a></h1>
+        <h1 class="text-light"><a href="index.php"><span>EasyChemBrowser</span></a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="" href="index.html">Search page</a></li>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a class="" href="index.php">Search page</a></li>
+          <li><a href="/users/register.php">Sign Up</a></li>
+          <li><a href="/users/login.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -85,14 +85,17 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
         <div class="col-xl-8">
             <h2>Search compounds</h2>
             <p> Obtain a unique compound:</p>
-
-
                 <div class="form__group field">
                   <input type="input" class="form__field" placeholder="Ex. 3542" name="cid" id='cid' value="<?= $_SESSION['data']['cid'] ?>" />
                   <label for="cid" class="form__label"><b>PubChem CID</b></label>
                 </div>
                 <br></br>
-                <div class="form__group field">
+                <div class="row" style="border-bottom: 2px dashed">
+                </div>
+                <br></br>
+            <h2>Advanced Search </h2>
+            <p> Obtain multiple compounds:</p>
+            <div class="form__group field">
                   <input type="input" class="form__field" placeholder="Ex. CN1CCC[C@H]1c2cccnc2" name="smiles" id='smiles' value="<?= $_SESSION['data']['smiles'] ?>" />
                   <label for="smiles" class="form__label"><b>Search by canonical SMILES</b></label>
                 </div>
@@ -102,11 +105,6 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
                   <label for="iupac" class="form__label"><b>Search by IUPAC Name</b></label>
                 </div>
              <br></br>
-        <div class="row" style="border-bottom: 2px dashed">
-        </div>
-            <br></br>
-        <h2>Advanced Search </h2>
-        <p> Obtain multiple compounds:</p>
             <div class="form__group field">
               <input type="input" class="form__field" placeholder="Ex. C6H12O6" name="molecularFormula" id='molecularFormula' value="<?= $_SESSION['data']['molecularFormula'] ?>" />
               <label for="name" class="form__label"><b>Search by Molecular Formula</b></label>
