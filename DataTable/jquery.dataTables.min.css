@@ -5,7 +5,7 @@ table.dataTable
     clear:both;
     border-collapse:separate;
     border-spacing:0;
-    font-size:12px
+    font-size:18px
 }
 table.dataTable thead th,
 table.dataTable tfoot th

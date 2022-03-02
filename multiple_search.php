@@ -104,6 +104,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
   </header><!-- End Header -->
 <br></br>
 <br></br>
+<br></br>
 <div class="row justify-content-center">
   <div class="col-xl-8">
   <h1>Search results</h1>
@@ -147,7 +148,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
   </script>
 </div>
 </div>
-
+<br></br>
 
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
