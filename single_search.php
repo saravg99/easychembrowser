@@ -113,9 +113,9 @@ if (mysqli_num_rows($rsS)) {
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="" href="index.html">Search page</a></li>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a class="" href="index.php">Search page</a></li>
+          <li><a href="users/register.php">Sign Up</a></li>
+          <li><a href="users/login.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->

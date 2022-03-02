@@ -93,9 +93,9 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="" href="index.html">Search page</a></li>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
+          <li><a class="" href="index.php">Search page</a></li>
+          <li><a href="users/register.php">Sign Up</a></li>
+          <li><a href="users/login.php">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -122,7 +122,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
           <tr>
               <td><a href="single_search.php?cid=<?= $rsF['CID'] ?>"><?= $rsF['CID'] ?></a></td>
               <td>
-              
+
               	 <?php if ($rsF['header']) {?>
                       <?= $rsF['header'] ?>
                   <?php    } else {?>
