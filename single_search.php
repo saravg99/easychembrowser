@@ -89,6 +89,7 @@ if (mysqli_num_rows($rsS)) {
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- DataTable -->
   <link rel="stylesheet" href="DataTable/jquery.dataTables.min.css">
   <script type="text/javascript" src="DataTable/jquery-2.2.0.min.js"></script>
@@ -138,6 +139,11 @@ if (mysqli_num_rows($rsS)) {
 
 	</h2>
 
+<label  id=iconlabel for="id-of-input" class="custom-checkbox">
+  <input type="checkbox" id="id-of-input"/>
+  <i class="fa fa-heart empty"></i>
+  <i class="fa fa-heart red"></i>
+</label>
 
   <table class="table table-hover">
       <tbody>

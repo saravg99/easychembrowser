@@ -1338,3 +1338,53 @@ section {
 #footer .credits a {
   color: #a2cce3;
 }
+
+
+
+
+
+/*---------------------
+      FAV  ICON 
+----------------------*/
+#iconlabel {
+  /* Presentation */
+  font-size: 48px
+}
+
+/* Required Styling */
+
+#iconlabel input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox {
+  margin-left: 2em;
+  position: relative;
+  cursor: pointer;
+}
+
+.custom-checkbox .fa {
+  color: red;
+  position: absolute;
+  top: 0.4em;
+  left: -1.25em;
+  font-size: 0.75em;
+}
+
+.custom-checkbox .empty {
+  color: gray;
+}
+
+.custom-checkbox .red {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.custom-checkbox:hover .red{
+  opacity: 0.5;
+}
+
+.custom-checkbox input[type="checkbox"]:checked ~ .red {
+  opacity: 1;
+}
+
