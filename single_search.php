@@ -65,14 +65,15 @@ $cid = $_SESSION['data']['cid'];
     </div>
   </header><!-- End Header -->
 
+<br><br><br><br><br><br>
   <table class="table table-hover">
       <tbody>
           <tr>
-              <td>PubChem reference</td>
+              <td>PubChem CID</td>
               <td><?= $_SESSION['data']['cid'] ?></td>
               <td rowspan="5">
-                  <a href="https://pubchem.ncbi.nlm.nih.gov/compound/$cid">
-                      <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/$cid/png" border="0" width="250" ><br>
+                  <a href="https://pubchem.ncbi.nlm.nih.gov/compound/<?=$cid?>">
+                      <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/<?=$cid?>/png" border="0" width="250" ><br>
                           Link to PubChem</a>
               </td>
           </tr>
