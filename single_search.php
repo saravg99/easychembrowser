@@ -139,11 +139,7 @@ if (mysqli_num_rows($rsS)) {
 
 	</h2>
 
-<label  id=iconlabel for="id-of-input" class="custom-checkbox">
-  <input type="checkbox" id="id-of-input"/>
-  <i class="fa fa-heart empty"></i>
-  <i class="fa fa-heart red"></i>
-</label>
+
 
   <table class="table table-hover">
       <tbody>
@@ -154,6 +150,12 @@ if (mysqli_num_rows($rsS)) {
                   <a href="https://pubchem.ncbi.nlm.nih.gov/compound/<?=$cid?>">
                       <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/<?=$cid?>/png" border="0" width="250" ><br>
                         <label class="row justify-content-center">Link to PubChem</label></a>
+                        <label  id=iconlabel for="id-of-input" class="custom-checkbox">
+                          <input type="checkbox" id="id-of-input"/>
+                          <i class="fa fa-heart empty"></i>
+                          <i class="fa fa-heart red"></i>
+                          <span style="font-size: 16px; vertical-align: middle;">Add to favourites</span>
+                        </label>
               </td>
           </tr>
           <tr>
