@@ -48,20 +48,20 @@ if (mysqli_num_rows($rsS)) {
     }
     $sourcesandurls = [];
     foreach ($sources as $sourcename) {
-    	
+
 	array_push($sourcesandurls, '<a href="'.$sourcesurl[$sourcename].'">'.$sourcename.'</a>' );
-    
-//<a href="url">text</a>   
-    
+
+//<a href="url">text</a>
+
     }
-    
+
     $data['sources'] = join("<br>", $sourcesandurls);
 }
 
 
 
  ?>
- 
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -125,12 +125,15 @@ if (mysqli_num_rows($rsS)) {
 
 <br><br><br><br><br><br>
 
+<div class="row justify-content-center">
+<div class="col-xl-8">
+
 	<h2>
 
 		  <?php if ($data['header']) {?>
                       <?= $data['header'] ?>
                   <?php    } else {?>
-                      <?= $data['IUPAC'] ?>    
+                      <?= $data['IUPAC'] ?>
                   <?php } ?>
 
 	</h2>
@@ -139,44 +142,46 @@ if (mysqli_num_rows($rsS)) {
   <table class="table table-hover">
       <tbody>
           <tr>
-              <td>PubChem CID</td>
+              <td><b>PubChem CID</b></td>
               <td><?= $data['CID'] ?></td>
               <td rowspan="5">
                   <a href="https://pubchem.ncbi.nlm.nih.gov/compound/<?=$cid?>">
                       <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/<?=$cid?>/png" border="0" width="250" ><br>
-                          Link to PubChem</a>
+                        <label class="row justify-content-center">Link to PubChem</label></a>
               </td>
           </tr>
           <tr>
-              <td>IUPAC name</td>
+              <td><b>IUPAC name</b></td>
               <td><?= $data['IUPAC'] ?></td>
           </tr>
           <tr>
-              <td>Molecular Formula</td>
+              <td><b>Molecular Formula</b></td>
               <td><?= $data['mol_formula'] ?></td>
           </tr>
           <tr>
-              <td>Molecular Weight</td>
+              <td><b>Molecular Weight</b></td>
               <td><?= $data['mol_weight'] ?></td>
           </tr>
           <tr>
-              <td>Description</td>
+              <td><b>Description</b></td>
               <td><?= $data['description'] ?></td>
           </tr>
 	  <tr>
-              <td>Synonyms</td>
+              <td><b>Synonyms</b></td>
               <td colspan="2"><?= $data['synonyms']?></td>
           </tr>
           <tr>
-              <td>Protein targets</td>
+              <td><b>Protein targets</b></td>
               <td colspan="2"><?= $data['targets']?></td>
           </tr>
           <tr>
-              <td>Sources</td>
+              <td>vSources</b></td>
               <td colspan="2"><?= $data['sources'] ?></td>
           </tr>
       </tbody>
   </table>
+</div>
+</div>
 
 
   <!-- ======= Footer ======= -->
@@ -209,5 +214,3 @@ if (mysqli_num_rows($rsS)) {
 </body>
 
 </html>
-
-
