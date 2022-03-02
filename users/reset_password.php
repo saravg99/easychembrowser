@@ -3,7 +3,7 @@
 session_start();
 
 // Include config file
-require_once "config.php";
+require_once "../config.php";
 
 // Define variables and initialize with empty values
 $new_password = $confirm_password = "";
