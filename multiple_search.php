@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// Include config file
+require_once "config.php";
+
 $_SESSION['data'] = $_REQUEST;
 
 
@@ -10,7 +13,33 @@ if ($_REQUEST['cid']) {
     header('Location: single_search.php?cid=' . $_REQUEST['cid']);
 
 }
-// If
+
+// conditions for multiple search
+
+$conditions = [];
+
+if ($_REQUEST['smiles']) {
+	array_push($conditions, 'SMILES LIKE "%'. $_REQUEST['smiles'] . '%"');
+}
+
+if ($_REQUEST['iupac']) {
+	array_push($conditions, 'IUPAC LIKE "%'. $_REQUEST['iupac'] . '%"');
+}
+
+if ($_REQUEST['molecularFormula']) {
+	array_push($conditions, 'mol_formula LIKE "%'. $_REQUEST['molecularFormula'] . '%"');
+}
+
+if ($_REQUEST['molecularWeight']) {
+	array_push($conditions, 'mol_weight LIKE "%'. $_REQUEST['molecularWeight'] . '%"');
+}
+
+
+$sql = "SELECT * from Compound WHERE " . join(" AND ", $conditions);
+
+$rs = mysqli_query($link, $sql) or print mysqli_error($link);
+
+//
 
 ?>
 
@@ -82,23 +111,20 @@ if ($_REQUEST['cid']) {
   <table border="0" cellspacing="2" cellpadding="4" id="dataTable">
       <thead>
           <tr>
-              <th>idCode</th>
-              <th>Header</th>
-              <th>Compound</th>
-              <th>Resolution</th>
-              <th>Exp. Type</th>
-              <th>Source</th>
+              <th>CID</th>
+              <th>Compound name</th>
+              <th>Molecular Formula</th>
+              <th>Molecular Weight</th>
           </tr>
       </thead>
       <tbody>
           <?php while ($rsF = mysqli_fetch_assoc($rs)) { ?>
           <tr>
-              <td><a href="getStruc.php?idCode=<?= $rsF['idCode'] ?>"><?= $rsF['idCode'] ?></a></td>
+              <td><a href="single_search.php?cid=<?= $rsF['CID'] ?>"><?= $rsF['CID'] ?></a></td>
               <td><?= ucwords(strtolower($rsF['header'])) ?></td>
-              <td><?= ucwords(strtolower($rsF['compound'])) ?></td>
-              <td><?= $rsF['resolution'] ?></td>
-              <td><?= $rsF['expType'] ?></td>
-              <td><?= ucwords(strtolower($rsF['source'])) ?></td>
+              <td><?= ucwords(strtolower($rsF['mol_formula'])) ?></td>
+              <td><?= $rsF['mol_weight'] ?></td>
+
           </tr>
           <?php } ?>
       </tbody>
