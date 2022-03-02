@@ -88,18 +88,18 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
 
 
                 <div class="form__group field">
-                  <input type="input" class="form__field" placeholder="Ex. 3542" name="name" id='name' value="<?= $_SESSION['data']['cid'] ?>" />
-                  <label for="name" class="form__label"><b>PubChem CID</b></label>
+                  <input type="input" class="form__field" placeholder="Ex. 3542" name="cid" id='cid' value="<?= $_SESSION['data']['cid'] ?>" />
+                  <label for="cid" class="form__label"><b>PubChem CID</b></label>
                 </div>
                 <br></br>
                 <div class="form__group field">
-                  <input type="input" class="form__field" placeholder="Ex. CN1CCC[C@H]1c2cccnc2" name="name" id='name' value="<?= $_SESSION['data']['smiles'] ?>" />
-                  <label for="name" class="form__label"><b>Search by canonical SMILES</b></label>
+                  <input type="input" class="form__field" placeholder="Ex. CN1CCC[C@H]1c2cccnc2" name="smiles" id='smiles' value="<?= $_SESSION['data']['smiles'] ?>" />
+                  <label for="smiles" class="form__label"><b>Search by canonical SMILES</b></label>
                 </div>
                 <br></br>
                 <div class="form__group field">
-                  <input type="input" class="form__field" placeholder="Ex. 2,5,5-trimethyl-2-hexene" name="name" id='name' value="<?= $_SESSION['data']['iupac'] ?>" />
-                  <label for="name" class="form__label"><b>Search by IUPAC Name</b></label>
+                  <input type="input" class="form__field" placeholder="Ex. 2,5,5-trimethyl-2-hexene" name="iupac" id='iupac' value="<?= $_SESSION['data']['iupac'] ?>" />
+                  <label for="iupac" class="form__label"><b>Search by IUPAC Name</b></label>
                 </div>
              <br></br>
         <div class="row" style="border-bottom: 2px dashed">
@@ -108,12 +108,12 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
         <h2>Advanced Search </h2>
         <p> Obtain multiple compounds:</p>
             <div class="form__group field">
-              <input type="input" class="form__field" placeholder="Ex. C6H12O6" name="name" id='name' value="<?= $_SESSION['data']['molecularFormula'] ?>" />
+              <input type="input" class="form__field" placeholder="Ex. C6H12O6" name="molecularFormula" id='molecularFormula' value="<?= $_SESSION['data']['molecularFormula'] ?>" />
               <label for="name" class="form__label"><b>Search by Molecular Formula</b></label>
             </div>
             <br></br>
             <div class="form__group field">
-              <input type="input" class="form__field" placeholder="Ex. 432.78" name="name" id='name' value="<?= $_SESSION['data']['molecularWeight'] ?>" />
+              <input type="input" class="form__field" placeholder="Ex. 432.78" name="molecularWeight" id='molecularWeight' value="<?= $_SESSION['data']['molecularWeight'] ?>" />
               <label for="name" class="form__label"><b>Search by Molecular Weight</b></label>
             </div>
             <div class="row">
