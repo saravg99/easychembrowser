@@ -112,7 +112,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
       <thead>
           <tr>
               <th>CID</th>
-              <th>Compound name</th>
+              <th>Compound</th>
               <th>Molecular Formula</th>
               <th>Molecular Weight</th>
           </tr>
@@ -121,8 +121,16 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
           <?php while ($rsF = mysqli_fetch_assoc($rs)) { ?>
           <tr>
               <td><a href="single_search.php?cid=<?= $rsF['CID'] ?>"><?= $rsF['CID'] ?></a></td>
-              <td><?= ucwords(strtolower($rsF['header'])) ?></td>
-              <td><?= ucwords(strtolower($rsF['mol_formula'])) ?></td>
+              <td>
+              
+              	 <?php if ($rsF['header']) {?>
+                      <?= $rsF['header'] ?>
+                  <?php    } else {?>
+                      <?= $rsF['IUPAC'] ?>
+                  <?php } ?>
+
+              </td>
+              <td><?= $rsF['mol_formula'] ?></td>
               <td><?= $rsF['mol_weight'] ?></td>
 
           </tr>
