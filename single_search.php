@@ -174,7 +174,7 @@ if ($_SESSION["loggedin"] == true) {
               <td><?= $data['CID'] ?></td>
               <td rowspan="5">
                   <a href="https://pubchem.ncbi.nlm.nih.gov/compound/<?=$cid?>">
-                      <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/<?=$cid?>/png" border="0" width="250" ><br>
+                      <img src="https://pubchem.ncbi.nlm.nih.gov/rest/pug/compound/cid/<?=$cid?>/png" border="0" width="300" ><br>
                         <label class="row justify-content-center">Link to PubChem</label></a>
                         <form action="fav.php" method="post">
                         <label  id="iconlabel" for="fav" class="custom-checkbox active">
@@ -217,11 +217,19 @@ if ($_SESSION["loggedin"] == true) {
           </tr>
           <tr>
               <td><b>Description</b></td>
-              <td><?= $data['description'] ?></td>
+              <td>		  <?php if ($data['description']) {?>
+                      <?= $data['description'] ?>
+                  <?php    } else {?>
+                      <?= '<em>No data available</em>' ?>
+                  <?php } ?></td>
           </tr>
 	  <tr>
               <td><b>Synonyms</b></td>
-              <td colspan="2"><?= $data['synonyms']?></td>
+              <td colspan="2"><?php if ($data['synonyms']) {?>
+                      <?= $data['synonyms'] ?>
+                  <?php    } else {?>
+                      <?= '<em>No data available</em>' ?>
+                  <?php } ?></td>
           </tr>
           <tr>
               <td><b>Protein targets</b></td>
@@ -229,7 +237,11 @@ if ($_SESSION["loggedin"] == true) {
           </tr>
           <tr>
               <td><b>Sources</b></td>
-              <td colspan="2"><?= $data['sources'] ?></td>
+              <td colspan="2"><?php if ($data['sources']) {?>
+                      <?= $data['sources'] ?>
+                  <?php    } else {?>
+                      <?= '<em>No data available</em>' ?>
+                  <?php } ?></td>
           </tr>
       </tbody>
   </table>
