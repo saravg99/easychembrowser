@@ -83,14 +83,7 @@ if ($_SESSION["loggedin"] == true) {
 <!DOCTYPE html>
 <html lang="en">
 
-<!--
-                          <?php if ($isfav == true) {?>
-                      <?= 'active'; ?>
-                  <?php    } else {?>
-                      <?= '';?>
-                  <?php } ?>
 
--->
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -139,13 +132,11 @@ if ($_SESSION["loggedin"] == true) {
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="" href="index.php">Search page</a></li>
-          
-          
+               
          <?php if ($_SESSION["loggedin"] == true) {?>
-                      <?= '<li><a href="users/profile.php">My profile</a></li><li><a href="users/logout.php">Log Out</a></li>'; ?>
+                      <?= '<li style="color:white"><a><b>Welcome '. $_SESSION['username'] .'!</b></a><li><a class="" href="index.php">Search page</a></li></li><li><a href="users/profile.php">My favourites</a></li><li><a href="users/logout.php">Log Out</a></li>'; ?>
                   <?php    } else {?>
-                      <?= '<li><a href="users/register.php">Sign Up</a></li>
+                      <?= '<li><a class="" href="index.php">Search page</a></li><li><a href="users/register.php">Sign Up</a></li>
           <li><a href="users/login.php">Login</a></li>';?>
                   <?php } ?>
           
@@ -188,8 +179,20 @@ if ($_SESSION["loggedin"] == true) {
                         <form action="fav.php" method="post">
                         <label  id="iconlabel" for="fav" class="custom-checkbox active">
                           <input type="submit" id="fav" name="fav" />
-                          <i class="fa fa-heart empty"></i>
-                          <i class="fa fa-heart red"></i>
+                          <i class= 
+                          <?php if ($isfav == true) {?>
+                      <?= '"fa fa-heart fa1 heart1"'; ?>
+                  <?php    } else {?>
+                      <?= '"fa fa-heart fa2 heart2"';?>
+                  <?php } ?>
+                          ></i>
+                          <i class= 
+                          <?php if ($isfav == true) {?>
+                      <?= '"fa fa-heart fa1 heart"'; ?>
+                  <?php    } else {?>
+                      <?= '"fa fa-heart fa2 heart"';?>
+                  <?php } ?>
+                          ></i>                          
                           <span style="font-size: 16px; vertical-align: middle;">                          
                           <?php if ($isfav == true) {?>
                       <?= 'Added as favourite'; ?>

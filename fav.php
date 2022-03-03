@@ -37,13 +37,16 @@ if (isset($_POST['fav'])) {
 			//print($removefav);
 			mysqli_query($link, $removefav) or print mysqli_error($link);
 		}
+	
+	header("Location: single_search.php?cid=". $cid);
+		
 	} else {
 
-		header("Location: users/login.php");
+		header("Location: ./users/login.php");
 	}
 
 }
 	
-header("Location: single_search.php?cid=". $cid);
+
 	
 ?>

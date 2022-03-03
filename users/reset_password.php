@@ -110,15 +110,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="" href="../index.php">Search page</a></li>
-          <li><a href="register.php">Sign Up</a></li>
-          <li><a href="login.php">Login</a></li>
+               
+         <?php if ($_SESSION["loggedin"] == true) {?>
+                      <?= '<li style="color:white"><a><b>Welcome '. $_SESSION['username'] .'!</b></a><li><a class="" href="../index.php">Search page</a></li></li><li><a href="profile.php">My favourites</a></li><li><a href="logout.php">Log Out</a></li>'; ?>
+                  <?php    } else {?>
+                      <?= '<li><a class="" href="../index.php">Search page</a></li><li><a href="register.php">Sign Up</a></li>
+          <li><a href="login.php">Login</a></li>';?>
+                  <?php } ?>
+          
+          
+          
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
+  
 
 
     <div class="wrapper">
