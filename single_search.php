@@ -12,8 +12,7 @@ $sql = "SELECT * from Compound WHERE CID=" . $cid ;
 $rs = mysqli_query($link, $sql) or print mysqli_error($link);
 
 if (!mysqli_num_rows($rs)) { //search is empty
-    print "<h1>Not Found</h1> <p> The requested compound is not available. </p>";
-    exit();
+    header("Location: notfound.php?cid=". $cid);
 }
 
 $data = mysqli_fetch_assoc($rs);
