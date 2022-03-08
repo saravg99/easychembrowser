@@ -202,7 +202,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </div>
 </div>
 </div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">
