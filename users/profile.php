@@ -43,6 +43,11 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
   <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- DataTable -->
+  <link rel="stylesheet" href="../DataTable/jquery.dataTables.min.css">
+  <script type="text/javascript" src="../DataTable/jquery-2.2.0.min.js"></script>
+  <script type="text/javascript" src="../DataTable/jquery.dataTables.min.js"></script>
+
 
   <link href="../assets/css/style.css" rel="stylesheet">
 

@@ -74,6 +74,8 @@
 <div class="col-xl-8" style="text-align:center">
     <h2 ><?php echo 'Compound '. $_REQUEST['cid'] . ' not available'; ?></h2>
     	<p>Sorry for the inconvenience :(</p>
+        <p>Only available compounds from 0 to 1000 (PubChem IDs)</p>
+        <br>
     <?php if ($_REQUEST['cid'] == 3542) { ?>
         <?= "<h2>You've been rickrolled ;) </h2>"; ?>
         <?= '<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'; } ?>

@@ -126,9 +126,17 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
                   <b>To</b> <input type="text" class="form__field" placeholder="Ex. 60" name="maxWeight" value="<?= $_SESSION['data']['maxWeight'] ?>" size="5">
               </p>
             </div>
+
+
             <div class="form__group field">
-                <input type="checkbox" class="form-check-input"style="margin-right: 5px;" name="lipinski">Follows Lipinski rule of 5</button>
+
+                <label class="toggle">
+                <input type="checkbox" name="lipinski">
+                <span class="slider"></span>
+                </label>
+                <label style="vertical-align: middle; margin-bottom: 10px; margin-left: 5px"><b>Follows Lipinski rule of 5</b></label>
             </div>
+
 
             <div class="row">
             <div class="form__group field">
@@ -139,7 +147,6 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
         </div>
 </div>
 <br></br>
-
 
 </form>
 
