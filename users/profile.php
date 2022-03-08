@@ -110,6 +110,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
                   <?php } ?>
 
               </td>
+              <td><?= $rsF['SMILES'] ?></td>
               <td><?= $rsF['mol_formula'] ?></td>
               <td><?= $rsF['mol_weight'] ?></td>
 
