@@ -14,6 +14,7 @@ if ($_REQUEST['cid']) {
 
 }
 
+
 // conditions for multiple search
 
 $conditions = [];
@@ -32,6 +33,16 @@ if ($_REQUEST['molecularFormula']) {
 
 if ($_REQUEST['molecularWeight']) {
 	array_push($conditions, 'mol_weight LIKE "%'. $_REQUEST['molecularWeight'] . '%"');
+}
+
+
+if (($_REQUEST['minWeight'] != '0.0') or ( $_REQUEST['maxWeight'] != 'Inf')) {
+    if ($_REQUEST['minWeight'] != '0.0') {
+        $conditions[] = "e.resolution >= " . $_REQUEST['minWeight'];
+    }
+    if ($_REQUEST['maxWeight'] != 'Inf') {
+        $conditions[] = "e.resolution <= " . $_REQUEST['maxWeight'];
+    }
 }
 
 
@@ -93,23 +104,23 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
 
       <nav id="navbar" class="navbar">
         <ul>
-               
+
          <?php if ($_SESSION["loggedin"] == true) {?>
                       <?= '<li style="color:white"><a><b>Welcome '. $_SESSION['username'] .'!</b></a><li><a class="" href="index.php">Search page</a></li></li><li><a href="users/profile.php">My favourites</a></li><li><a href="users/logout.php">Log Out</a></li>'; ?>
                   <?php    } else {?>
                       <?= '<li><a class="" href="index.php">Search page</a></li><li><a href="users/register.php">Sign Up</a></li>
           <li><a href="users/login.php">Login</a></li>';?>
                   <?php } ?>
-          
-          
-          
+
+
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-  
+
 <br></br>
 <br></br>
 <br></br>
@@ -122,6 +133,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
           <tr>
               <th>CID</th>
               <th>Compound</th>
+              <th>SMILES</th>
               <th>Molecular Formula</th>
               <th>Molecular Weight</th>
           </tr>
@@ -139,6 +151,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
                   <?php } ?>
 
               </td>
+              <td><?= $rsF['SMILES'] ?></td>
               <td><?= $rsF['mol_formula'] ?></td>
               <td><?= $rsF['mol_weight'] ?></td>
 

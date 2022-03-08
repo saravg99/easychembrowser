@@ -50,37 +50,39 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-               
+
          <?php if ($_SESSION["loggedin"] == true) {?>
                       <?= '<li style="color:white"><a><b>Welcome '. $_SESSION['username'] .'!</b></a><li><a class="" href="index.php">Search page</a></li></li><li><a href="users/profile.php">My favourites</a></li><li><a href="users/logout.php">Log Out</a></li>'; ?>
                   <?php    } else {?>
                       <?= '<li><a class="" href="index.php">Search page</a></li><li><a href="users/register.php">Sign Up</a></li>
           <li><a href="users/login.php">Login</a></li>';?>
                   <?php } ?>
-          
-          
-          
+
+
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-  
-  
-<br><br><br><br><br><br>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <div class="row justify-content-center">
 <div class="col-xl-8" style="text-align:center">
-
-	<h2 ><?php echo 'Compound '. $_REQUEST['cid'] . ' not available'; ?></h2>
-	<p>Sorry for the inconvenience :(</p>
-	<br><br>
+    <h2 ><?php echo 'Compound '. $_REQUEST['cid'] . ' not available'; ?></h2>
+    	<p>Sorry for the inconvenience :(</p>
+    <?php if ($_REQUEST['cid'] == 3542) { ?>
+        <?= "<h2>You've been rickrolled ;) </h2>"; ?>
+        <?= '<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'; } ?>
+    <br><br>
 	<button type='button' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356" onclick="window.location.href='index.php?new=1'">New search</button>
-	<br><br><br><br><br><br><br><br><br><br>
-</div>
-</div>
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
+</div>
+</div>
 
   <!-- ======= Footer ======= -->
   <footer id="footer" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500">

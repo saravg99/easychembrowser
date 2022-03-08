@@ -54,23 +54,23 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
 
       <nav id="navbar" class="navbar">
         <ul>
-               
+
          <?php if ($_SESSION["loggedin"] == true) {?>
                       <?= '<li style="color:white"><a><b>Welcome '. $_SESSION['username'] .'!</b></a><li><a class="" href="index.php">Search page</a></li></li><li><a href="users/profile.php">My favourites</a></li><li><a href="users/logout.php">Log Out</a></li>'; ?>
                   <?php    } else {?>
                       <?= '<li><a class="" href="index.php">Search page</a></li><li><a href="users/register.php">Sign Up</a></li>
           <li><a href="users/login.php">Login</a></li>';?>
                   <?php } ?>
-          
-          
-          
+
+
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-  
+
 
   <!-- ======= Hero No Slider Section ======= -->
   <section id="hero-no-slider" class="d-flex justify-content-center align-items-center">
@@ -104,23 +104,27 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
             <h2>Advanced Search </h2>
             <p> Obtain multiple compounds:</p>
             <div class="form__group field">
-                  <input type="input" class="form__field" placeholder="Ex. CN1CCC[C@H]1c2cccnc2" name="smiles" id='smiles' value="<?= $_SESSION['data']['smiles'] ?>" />
+                  <input type="input" class="form__field" placeholder="Ex. CC(=O)OC(CC(=O)[O-])C[N+](C)(C)C" name="smiles" id='smiles' value="<?= $_SESSION['data']['smiles'] ?>" />
                   <label for="smiles" class="form__label"><b>Search by canonical SMILES</b></label>
                 </div>
-                <br></br>
+                <p></p>
                 <div class="form__group field">
-                  <input type="input" class="form__field" placeholder="Ex. 2,5,5-trimethyl-2-hexene" name="iupac" id='iupac' value="<?= $_SESSION['data']['iupac'] ?>" />
+                  <input type="input" class="form__field" placeholder="Ex. 3-acetyloxy-4-(trimethylazaniumyl)butanoate" name="iupac" id='iupac' value="<?= $_SESSION['data']['iupac'] ?>" />
                   <label for="iupac" class="form__label"><b>Search by IUPAC Name</b></label>
                 </div>
-             <br></br>
+             <p></p>
             <div class="form__group field">
-              <input type="input" class="form__field" placeholder="Ex. C6H12O6" name="molecularFormula" id='molecularFormula' value="<?= $_SESSION['data']['molecularFormula'] ?>" />
+              <input type="input" class="form__field" placeholder="Ex. C9H17NO4" name="molecularFormula" id='molecularFormula' value="<?= $_SESSION['data']['molecularFormula'] ?>" />
               <label for="name" class="form__label"><b>Search by Molecular Formula</b></label>
             </div>
-            <br></br>
+            <p></p>
             <div class="form__group field">
-              <input type="input" class="form__field" placeholder="Ex. 432.78" name="molecularWeight" id='molecularWeight' value="<?= $_SESSION['data']['molecularWeight'] ?>" />
-              <label for="name" class="form__label"><b>Search by Molecular Weight</b></label>
+             <label for="name" class="form__label"><b>Search by Molecular Weight</b></label>
+             <p></p>
+              <p>
+                  <b>From</b> <input type="text" class="form__field" placeholder="Ex. 30" name="minWeight" value="<?= $_SESSION['data']['minWeight'] ?>" size="5">
+                  <b>To</b> <input type="text" class="form__field" placeholder="Ex. 60" name="maxWeight" value="<?= $_SESSION['data']['maxWeight'] ?>" size="5">
+              </p>
             </div>
             <div class="row">
             <div class="form__group field">
