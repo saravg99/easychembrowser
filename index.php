@@ -4,7 +4,7 @@
 session_start();
 
 if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
-    $_SESSION['data'] = [];  
+    $_SESSION['data'] = [];
 }
 ?>
 
@@ -126,6 +126,10 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
                   <b>To</b> <input type="text" class="form__field" placeholder="Ex. 60" name="maxWeight" value="<?= $_SESSION['data']['maxWeight'] ?>" size="5">
               </p>
             </div>
+            <div class="form__group field">
+                <input type="checkbox" class="form-check-input"style="margin-right: 5px;" name="lipinski">Follows Lipinski rule of 5</button>
+            </div>
+
             <div class="row">
             <div class="form__group field">
                     <button type='submit' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356">Submit</button>

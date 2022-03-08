@@ -39,7 +39,9 @@ if ($_REQUEST['maxWeight']) {
 	array_push($conditions, "mol_weight <= " . $_REQUEST['maxWeight']);
 }
 
-
+if ($_REQUEST['lipinski']) {
+	array_push($conditions, "lipinski = 'Yes'");
+}
 
 
 $sql = "SELECT * from Compound WHERE " . join(" AND ", $conditions);
@@ -128,6 +130,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
       <thead>
           <tr>
               <th>CID</th>
+              <th>Lipinski</th>
               <th>Compound</th>
               <th>SMILES</th>
               <th>Molecular Formula</th>
@@ -138,6 +141,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
           <?php while ($rsF = mysqli_fetch_assoc($rs)) { ?>
           <tr>
               <td><a href="single_search.php?cid=<?= $rsF['CID'] ?>"><?= $rsF['CID'] ?></a></td>
+               <td><?= $rsF['lipinski'] ?></td>
               <td>
 
               	 <?php if ($rsF['header']) {?>
@@ -156,6 +160,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
       </tbody>
   </table>
 
+<?php print_r($_REQUEST); ?>
   <p class="button"><a href="index.php?new=1">New Search</a></p>
   <script type="text/javascript">
   <!-- this activates the DataTable element when page is loaded-->
