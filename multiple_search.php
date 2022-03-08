@@ -124,8 +124,10 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
 <br></br>
 <div class="row justify-content-center">
   <div class="col-xl-8">
-  <h1>Search results</h1>
-  Num Hits: <?= mysqli_num_rows($rs) ?>
+  <h1>Search results: </h1>
+  <br>
+  <h4><?= mysqli_num_rows($rs) ?> compounds found</h4>
+    <br><br>
   <table border="0" cellspacing="2" cellpadding="4" id="dataTable">
       <thead>
           <tr>

@@ -79,7 +79,7 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
         <div class="col-xl-8">
             <br></br>
             <h2>Welcome to EasyChemBrowser</h2>
-            <p>An easy acces to PubChem.</p>
+            <p>An easy access to PubChem.</p>
         </div>
         </div>
       </div>

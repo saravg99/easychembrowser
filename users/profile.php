@@ -92,7 +92,9 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
 <div class="row justify-content-center">
   <div class="col-xl-8">
   <h1>My favourites</h1>
-  <?= mysqli_num_rows($rs) ?> favourite compounds
+  <br>
+  <h4><?= mysqli_num_rows($rs) ?> favourite compounds</h4>
+  <br>
   <table border="0" cellspacing="2" cellpadding="4" id="dataTable">
       <thead>
           <tr>
@@ -128,7 +130,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
   </table>
   <br>
 
-  <button type='button' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356" onclick="window.location.href='index.php?new=1'">New search</button>
+  <button type='button' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356" onclick="window.location.href='../index.php?new=1'">New search</button>
   <script type="text/javascript">
   <!-- this activates the DataTable element when page is loaded-->
       $(document).ready(function () {
