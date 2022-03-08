@@ -5,7 +5,7 @@ import sys
 pugrest = "https://pubchem.ncbi.nlm.nih.gov/rest/pug/"
 
 def get_compound_properties(cid_list, data_folder):
-	operation1 = "compound/cid/property/CanonicalSMILES,IUPACName,Title,MolecularFormula,MolecularWeight/CSV"
+	operation1 = "compound/cid/property/CanonicalSMILES,IUPACName,Title,MolecularFormula,MolecularWeight,XLogP,HBondDonorCount,HBondAcceptorCount/CSV"
 	url1 = pugrest + operation1
 	data_file = data_folder + "compound_properties.csv"
 	if os.path.exists(data_file):
