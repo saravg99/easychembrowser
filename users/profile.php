@@ -2,6 +2,16 @@
 
 session_start();
 
+// Include config file
+require_once "../config.php";
+
+$userid = $_SESSION["id"];
+
+$sql = "SELECT * from results_history r INNER JOIN Compound c  ON r.Compound_CID=c.CID WHERE r.users_id=".$userid;
+
+$rs = mysqli_query($link, $sql) or print mysqli_error($link);
+
+
 ?>
 
 
@@ -71,7 +81,53 @@ session_start();
   
 
 
+<br></br>
+<br></br>
+<br></br>
+<div class="row justify-content-center">
+  <div class="col-xl-8">
+  <h1>Search results</h1>
+  Num Hits: <?= mysqli_num_rows($rs) ?>
+  <table border="0" cellspacing="2" cellpadding="4" id="dataTable">
+      <thead>
+          <tr>
+              <th>CID</th>
+              <th>Compound</th>
+              <th>Molecular Formula</th>
+              <th>Molecular Weight</th>
+          </tr>
+      </thead>
+      <tbody>
+          <?php while ($rsF = mysqli_fetch_assoc($rs)) { ?>
+          <tr>
+              <td><a href="single_search.php?cid=<?= $rsF['CID'] ?>"><?= $rsF['CID'] ?></a></td>
+              <td>
 
+              	 <?php if ($rsF['header']) {?>
+                      <?= $rsF['header'] ?>
+                  <?php    } else {?>
+                      <?= $rsF['IUPAC'] ?>
+                  <?php } ?>
+
+              </td>
+              <td><?= $rsF['mol_formula'] ?></td>
+              <td><?= $rsF['mol_weight'] ?></td>
+
+          </tr>
+          <?php } ?>
+      </tbody>
+  </table>
+
+  <p class="button"><a href="index.php?new=1">New Search</a></p>
+  <script type="text/javascript">
+  <!-- this activates the DataTable element when page is loaded-->
+      $(document).ready(function () {
+          $('#dataTable').DataTable();
+      });
+  </script>
+</div>
+</div>
+<br></br>
 
 
   <!-- ======= Footer ======= -->
