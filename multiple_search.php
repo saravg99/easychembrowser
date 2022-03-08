@@ -31,19 +31,15 @@ if ($_REQUEST['molecularFormula']) {
 	array_push($conditions, 'mol_formula LIKE "%'. $_REQUEST['molecularFormula'] . '%"');
 }
 
-if ($_REQUEST['molecularWeight']) {
-	array_push($conditions, 'mol_weight LIKE "%'. $_REQUEST['molecularWeight'] . '%"');
+if ($_REQUEST['minWeight']) {
+	array_push($conditions, "mol_weight >= " . $_REQUEST['minWeight']);
+}
+
+if ($_REQUEST['maxWeight']) {
+	array_push($conditions, "mol_weight <= " . $_REQUEST['maxWeight']);
 }
 
 
-if (($_REQUEST['minWeight'] != '0.0') or ( $_REQUEST['maxWeight'] != 'Inf')) {
-    if ($_REQUEST['minWeight'] != '0.0') {
-        $conditions[] = "e.resolution >= " . $_REQUEST['minWeight'];
-    }
-    if ($_REQUEST['maxWeight'] != 'Inf') {
-        $conditions[] = "e.resolution <= " . $_REQUEST['maxWeight'];
-    }
-}
 
 
 $sql = "SELECT * from Compound WHERE " . join(" AND ", $conditions);

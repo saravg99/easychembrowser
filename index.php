@@ -4,7 +4,7 @@
 session_start();
 
 if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
-    $_SESSION['data'] = [];
+    $_SESSION['data'] = [];  
 }
 ?>
 
