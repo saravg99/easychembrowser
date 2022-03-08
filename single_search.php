@@ -60,7 +60,7 @@ if (mysqli_num_rows($rsS)) {
 
 
 
-	
+
 //check if is saved in favourites
 $isfav = false;
 
@@ -69,7 +69,7 @@ if ($_SESSION["loggedin"] == true) {
 	$checkfav = "SELECT * FROM results_history r WHERE r.users_id=".$_SESSION["id"]." AND r.Compound_CID=".$cid ;
 	$checkresults = mysqli_query($link, $checkfav) or print mysqli_error($link);
 	if (mysqli_num_rows($checkresults)) {
-		$isfav = true; 
+		$isfav = true;
 	}
 }
 
@@ -131,24 +131,24 @@ if ($_SESSION["loggedin"] == true) {
 
       <nav id="navbar" class="navbar">
         <ul>
-               
+
          <?php if ($_SESSION["loggedin"] == true) {?>
                       <?= '<li style="color:white"><a><b>Welcome '. $_SESSION['username'] .'!</b></a><li><a class="" href="index.php">Search page</a></li></li><li><a href="users/profile.php">My favourites</a></li><li><a href="users/logout.php">Log Out</a></li>'; ?>
                   <?php    } else {?>
                       <?= '<li><a class="" href="index.php">Search page</a></li><li><a href="users/register.php">Sign Up</a></li>
           <li><a href="users/login.php">Login</a></li>';?>
                   <?php } ?>
-          
-          
-          
+
+
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-  
-  
+
+
 <br><br><br><br><br><br>
 
 <div class="row justify-content-center">
@@ -178,21 +178,21 @@ if ($_SESSION["loggedin"] == true) {
                         <form action="fav.php" method="post">
                         <label  id="iconlabel" for="fav" class="custom-checkbox active">
                           <input type="submit" id="fav" name="fav" />
-                          <i class= 
+                          <i class=
                           <?php if ($isfav == true) {?>
                       <?= '"fa fa-heart fa1 heart1"'; ?>
                   <?php    } else {?>
                       <?= '"fa fa-heart fa2 heart2"';?>
                   <?php } ?>
                           ></i>
-                          <i class= 
+                          <i class=
                           <?php if ($isfav == true) {?>
                       <?= '"fa fa-heart fa1 heart"'; ?>
                   <?php    } else {?>
                       <?= '"fa fa-heart fa2 heart"';?>
                   <?php } ?>
-                          ></i>                          
-                          <span style="font-size: 16px; vertical-align: middle;">                          
+                          ></i>
+                          <span style="font-size: 16px; vertical-align: middle;">
                           <?php if ($isfav == true) {?>
                       <?= 'Added as favourite'; ?>
                   <?php    } else {?>
@@ -213,6 +213,15 @@ if ($_SESSION["loggedin"] == true) {
           <tr>
               <td><b>Molecular Weight</b></td>
               <td><?= $data['mol_weight'] ?></td>
+          </tr>
+          <tr>
+              <td><b>Lipinski rule of 5</b></td>
+              <td><b><?= $data['lipinski'] ?></b>
+                  LogP: <?=$data['XLogP'] ?><br>
+                  H bond donors: <?=$data['HBondDonorCount'] ?><br>
+                  H bond acceptors: <?=$data['HBondAcceptorCount'] ?><br>
+                  Molecular weight: <?=$data['mol_weight'] ?>
+              </td>
           </tr>
           <tr>
               <td><b>Description</b></td>
