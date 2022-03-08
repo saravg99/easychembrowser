@@ -180,7 +180,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }
         ?>
 
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <form action="login.php" method="post">
             <div class="form-group">
                 <label>Username</label>
                 <input type="text" name="username" style="width:50%" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
