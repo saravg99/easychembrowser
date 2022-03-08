@@ -65,19 +65,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;
 
                             // Redirect user to welcome page or results page
-                            
+
                             if ($cid == ""){
-                            
+
                             	header("Location: ../index.php?new=1");
                             	//print("no cid: ". $cid);
-                            
+
                             } else {
-                            
+
                             	header("Location: ../single_search.php?cid=". $cid);
                             	//print($cid);
                             }
-                                                 
-                            
+
+
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
@@ -146,23 +146,23 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
       <nav id="navbar" class="navbar">
         <ul>
-               
+
          <?php if ($_SESSION["loggedin"] == true) {?>
                       <?= '<li style="color:white"><a><b>Welcome '. $_SESSION['username'] .'!</b></a><li><a class="" href="../index.php">Search page</a></li></li><li><a href="profile.php">My favourites</a></li><li><a href="logout.php">Log Out</a></li>'; ?>
                   <?php    } else {?>
                       <?= '<li><a class="" href="../index.php">Search page</a></li><li><a href="register.php">Sign Up</a></li>
           <li><a href="login.php">Login</a></li>';?>
                   <?php } ?>
-          
-          
-          
+
+
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
 
     </div>
   </header><!-- End Header -->
-  
+
   <body>
       <br></br>
       <br></br>
@@ -197,8 +197,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             </div>
             <p></p>
             <p>Don't have an account? <a href="register.php">Sign up now</a>.</p>
-            
-            
+
         </form>
     </div>
 </div>
