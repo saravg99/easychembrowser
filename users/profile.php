@@ -86,13 +86,15 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
 <br></br>
 <div class="row justify-content-center">
   <div class="col-xl-8">
-  <h1>Search results</h1>
-  Num Hits: <?= mysqli_num_rows($rs) ?>
+  <h1>My favourites</h1>
+  <?= mysqli_num_rows($rs) ?> favourite compounds
   <table border="0" cellspacing="2" cellpadding="4" id="dataTable">
       <thead>
           <tr>
               <th>CID</th>
+              <th>Lipinski</th>
               <th>Compound</th>
+              <th>Smiles</th>
               <th>Molecular Formula</th>
               <th>Molecular Weight</th>
           </tr>
@@ -101,6 +103,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
           <?php while ($rsF = mysqli_fetch_assoc($rs)) { ?>
           <tr>
               <td><a href="../single_search.php?cid=<?= $rsF['CID'] ?>"><?= $rsF['CID'] ?></a></td>
+              <td><?= $rsF['lipinski'] ?></td>
               <td>
 
               	 <?php if ($rsF['header']) {?>
@@ -118,8 +121,9 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
           <?php } ?>
       </tbody>
   </table>
+  <br>
 
-  <p class="button"><a href="index.php?new=1">New Search</a></p>
+  <button type='button' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356" onclick="window.location.href='index.php?new=1'">New search</button>
   <script type="text/javascript">
   <!-- this activates the DataTable element when page is loaded-->
       $(document).ready(function () {
@@ -146,17 +150,17 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="../assets/js/main.js"></script>
 
 </body>
 

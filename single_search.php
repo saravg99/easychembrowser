@@ -215,8 +215,8 @@ if ($_SESSION["loggedin"] == true) {
               <td><?= $data['mol_weight'] ?></td>
           </tr>
           <tr>
-              <td><b>Lipinski rule of 5</b></td>
-              <td><b><?= $data['lipinski'] ?></b>
+              <td><b>Lipinski</b> <br> <b>rule of 5</b></td>
+              <td><b><?= $data['lipinski'] ?></b> <br>
                   LogP: <?=$data['XLogP'] ?><br>
                   H bond donors: <?=$data['HBondDonorCount'] ?><br>
                   H bond acceptors: <?=$data['HBondAcceptorCount'] ?><br>
