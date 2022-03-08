@@ -160,8 +160,7 @@ $rs = mysqli_query($link, $sql) or print mysqli_error($link);
       </tbody>
   </table>
 
-<?php print_r($_REQUEST); ?>
-  <p class="button"><a href="index.php?new=1">New Search</a></p>
+  <button type='button' class="btn btn-primary" style="background-color: #1e4356; border-color:#1e4356" onclick="window.location.href='index.php?new=1'">New search</button>
   <script type="text/javascript">
   <!-- this activates the DataTable element when page is loaded-->
       $(document).ready(function () {
