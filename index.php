@@ -134,7 +134,7 @@ if (isset($_REQUEST['new']) or !isset($_SESSION['data'])) {
                 <input type="checkbox" name="lipinski">
                 <span class="slider"></span>
                 </label>
-                <label style="vertical-align: middle; margin-bottom: 10px; margin-left: 5px"><b>Follows Lipinski rule of 5</b></label>
+                <label style="vertical-align: middle; margin-bottom: 12px; margin-left: 5px"><b>Follows Lipinski rule of 5</b></label>
             </div>
 
 
