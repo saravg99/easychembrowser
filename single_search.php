@@ -207,6 +207,10 @@ if ($_SESSION["loggedin"] == true) {
               <td><?= $data['IUPAC'] ?></td>
           </tr>
           <tr>
+              <td><b>SMILES</b></td>
+              <td><?= $data['SMILES'] ?></td>
+          </tr>
+          <tr>
               <td><b>Molecular Formula</b></td>
               <td><?= $data['mol_formula'] ?></td>
           </tr>
@@ -217,7 +221,11 @@ if ($_SESSION["loggedin"] == true) {
           <tr>
               <td><b>Lipinski</b> <br> <b>rule of 5</b></td>
               <td><b><?= $data['lipinski'] ?></b> <br>
-                  LogP: <?=$data['XLogP'] ?><br>
+                  LogP: <?php if ($data['XLogP']) {?>
+                      <?= $data['XLogP'] ?>
+                  <?php    } else {?>
+                      <?= '<em>No data available</em>' ?>
+                  <?php } ?><br>
                   H bond donors: <?=$data['HBondDonorCount'] ?><br>
                   H bond acceptors: <?=$data['HBondAcceptorCount'] ?><br>
                   Molecular weight: <?=$data['mol_weight'] ?>
